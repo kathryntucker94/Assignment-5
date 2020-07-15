@@ -8,7 +8,7 @@ window.addEventListener("load", function(){
      if(pilotName.value ==="" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === ""){
          alert("All fields are required!");
          event.preventDefault()
-      }else if(typeof(pilotName.value) !== "string" || typeof(copilotName.value) !== "string" || isNaN(fuelLevel.value) === true || isNaN(cargoMass.value) === true){
+      }else if(isNaN(pilotName.value) === false || isNaN(copilotName.value) === false || isNaN(Number(fuelLevel.value)) === true || isNaN(Number(cargoMass.value)) === true){
          alert("Please enter valid input types");
          event.preventDefault();
       }
