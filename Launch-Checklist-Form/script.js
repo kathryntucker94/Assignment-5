@@ -10,6 +10,7 @@ window.addEventListener("load", function(){
      let copilotStatus=document.getElementById("copilotStatus");
      let fuelStatus=document.getElementById("fuelStatus");
      let cargoStatus=document.getElementById("cargoStatus");
+     let launchStatus=document.getElementById("launchStatus");
 
      if(pilotName.value ==="" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === ""){
          alert("All fields are required!");
@@ -17,11 +18,9 @@ window.addEventListener("load", function(){
       }else if(isNaN(pilotName.value) === false || isNaN(copilotName.value) === false || isNaN(Number(fuelLevel.value)) === true || isNaN(Number(cargoMass.value)) === true){
          alert("Please enter valid input types");
          event.preventDefault();
-      }else if (fuelLevel.value <10000){
-         faultyItems.style= `
-         visibility: visible;
-         `
-         console.log("visible")
+      }else if(Number(fuelLevel.value) <10000){
+         faultyItems.style.visibility= `visible`;
+         launchStatus.innerHTML =`Shuttle not ready for launch`;
       }
   });
 });
