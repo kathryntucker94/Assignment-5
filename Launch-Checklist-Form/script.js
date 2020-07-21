@@ -5,12 +5,23 @@ window.addEventListener("load", function(){
      let copilotName=document.querySelector("input[name=copilotName]");
      let fuelLevel=document.querySelector("input[name=fuelLevel]");
      let cargoMass=document.querySelector("input[name=cargoMass]");
+     let faultyItems=document.getElementById("faultyItems");
+     let pilotStatus=document.getElementById("pilotStatus");
+     let copilotStatus=document.getElementById("copilotStatus");
+     let fuelStatus=document.getElementById("fuelStatus");
+     let cargoStatus=document.getElementById("cargoStatus");
+
      if(pilotName.value ==="" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === ""){
          alert("All fields are required!");
          event.preventDefault()
       }else if(isNaN(pilotName.value) === false || isNaN(copilotName.value) === false || isNaN(Number(fuelLevel.value)) === true || isNaN(Number(cargoMass.value)) === true){
          alert("Please enter valid input types");
          event.preventDefault();
+      }else if (fuelLevel.value <10000){
+         faultyItems.style= `
+         visibility: visible;
+         `
+         console.log("visible")
       }
   });
 });
