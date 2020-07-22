@@ -21,6 +21,7 @@ window.addEventListener("load", function(){
       }else if(Number(fuelLevel.value) <10000){
          faultyItems.style.visibility= `visible`;
          launchStatus.innerHTML =`Shuttle not ready for launch`;
+         event.preventDefault();
       }
   });
 });
