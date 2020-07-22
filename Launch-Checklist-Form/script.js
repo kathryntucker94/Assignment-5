@@ -21,8 +21,27 @@ window.addEventListener("load", function(){
       }else if(Number(fuelLevel.value) <10000){
          faultyItems.style.visibility= `visible`;
          launchStatus.innerHTML =`Shuttle not ready for launch`;
+         launchStatus.style.color = `red`;
+         pilotStatus.innerHTML = `Pilot ${pilotName.value} is ready for launch.`;
+         copilotStatus.innerHTML = `Co-pilot ${copilotName.value} is ready for launch.`;
+         fuelStatus.innerHTML = `Fuel level too low for launch`
          event.preventDefault();
-      }
+      }else if(Number(cargoMass.value) >10000){
+         faultyItems.style.visibility= `visible`;
+         launchStatus.innerHTML =`Shuttle not ready for launch`;
+         launchStatus.style.color = `red`;
+         pilotStatus.innerHTML = `Pilot ${pilotName.value} is ready for launch.`;
+         copilotStatus.innerHTML = `Co-pilot ${copilotName.value} is ready for launch.`;
+         cargoStatus.innerHTML = `Cargo mass too high.`
+         event.preventDefault();
+      }else{
+         faultyItems.style.visibility=`visible`
+         launchStatus.innerHTML=`Shuttle is ready for launch.`
+         launchStatus.style.color = `green`
+         pilotStatus.innerHTML = `Pilot ${pilotName.value} is ready for launch.`;
+         copilotStatus.innerHTML = `Co-pilot ${copilotName.value} is ready for launch.`;
+         event.preventDefault();
+      };
   });
 });
 
